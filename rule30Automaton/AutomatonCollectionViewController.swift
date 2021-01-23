@@ -21,7 +21,7 @@ final class AutomatonCollectionViewController: UICollectionViewController {
 
     // A count of how many cycles we have gone through, and how much time to wait between cycles
     private var cycles = 1
-    private var cycleTime = 1.0
+    private let cycleTime = 1.0
 
     private let ruleHelper = RuleHelper()
 

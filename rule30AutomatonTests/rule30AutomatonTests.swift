@@ -10,24 +10,61 @@ import XCTest
 
 class rule30AutomatonTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private let ruleHelper = RuleHelper()
+    private let horizontalCellCount = 5
+    private let firstItem = IndexPath(row: 0, section: 0)
+    private let middleItem = IndexPath(row: 2, section: 0)
+    private let lastItem = IndexPath(row: 4, section: 0)
+
+    func testCalculateNextRow() {
+        let firstRow = [true]
+        let secondRow = ruleHelper.calculateNextRow(currentRow: firstRow)
+        let thirdRow = ruleHelper.calculateNextRow(currentRow: secondRow)
+        let fourthRow = ruleHelper.calculateNextRow(currentRow: thirdRow)
+
+        XCTAssertEqual(secondRow, [true, true, true])
+        XCTAssertEqual(thirdRow, [true, true, false, false, true])
+        XCTAssertEqual(fourthRow, [true, true, false, true, true, true, true])
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    // The cells first and last exist outside of the data, and are thus "blank", or "false"
+    func testCalculateCellStateWithSmallData() {
+        let dataSection = [true, true, true]
+
+        let firstCellState = ruleHelper.calculateCellState(dataSection, firstItem, horizontalCellCount)
+        let middleCellState = ruleHelper.calculateCellState(dataSection, middleItem, horizontalCellCount)
+        let lastCellState = ruleHelper.calculateCellState(dataSection, lastItem, horizontalCellCount)
+
+        XCTAssertEqual(firstCellState, false)
+        XCTAssertEqual(middleCellState, true)
+        XCTAssertEqual(lastCellState, false)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // These cells should all match, first to first, middle to middle, last to last
+    func testCalculateCellStateWithData() {
+        let dataSection = [true, false, true, false, false]
+
+        let firstCellState = ruleHelper.calculateCellState(dataSection, firstItem, horizontalCellCount)
+        let middleCellState = ruleHelper.calculateCellState(dataSection, middleItem, horizontalCellCount)
+        let lastCellState = ruleHelper.calculateCellState(dataSection, lastItem, horizontalCellCount)
+
+        XCTAssertEqual(firstCellState, true)
+        XCTAssertEqual(middleCellState, true)
+        XCTAssertEqual(lastCellState, false)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    // The first and last data cells should exist outside of the displayed cells, so the "first" cell should match
+    // the second dataSection item, and "last" should match second to last dataSection item
+    func testCalculateCellStateWithLargeData() {
+        let dataSection = [true, false, true, true, true, true, false]
+
+        let firstCellState = ruleHelper.calculateCellState(dataSection, firstItem, horizontalCellCount)
+        let middleCellState = ruleHelper.calculateCellState(dataSection, middleItem, horizontalCellCount)
+        let lastCellState = ruleHelper.calculateCellState(dataSection, lastItem, horizontalCellCount)
+
+        XCTAssertEqual(firstCellState, false)
+        XCTAssertEqual(middleCellState, true)
+        XCTAssertEqual(lastCellState, true)
     }
 
 }

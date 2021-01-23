@@ -10,7 +10,7 @@ import Foundation
 final class RuleHelper {
 
     // This creates a dictionary to represent the rules of rule30
-    private var rule30Dictionary: [[Bool]: Bool] = [
+    private let rule30Dictionary: [[Bool]: Bool] = [
         [true, true, true] : false,
         [true, true, false] : false,
         [true, false, true] : false,
@@ -22,8 +22,8 @@ final class RuleHelper {
     ]
 
     // Assumptions about the current ruleset. We know that on rule30 new cells on the left and right are always 'true'
-    private var rule30LeftEdge = true
-    private var rule30RightEdge = true
+    private let rule30LeftEdge = true
+    private let rule30RightEdge = true
 
     // Does the rule30 calculations and creates the next new row
     func calculateNextRow(currentRow: [Bool]) -> [Bool] {
