@@ -15,6 +15,7 @@
 		3448560C25BB73A50050648F /* rule30AutomatonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448560B25BB73A50050648F /* rule30AutomatonUITests.swift */; };
 		3448561D25BB74A60050648F /* AutomatonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448561C25BB74A60050648F /* AutomatonCollectionViewController.swift */; };
 		3448562825BB833F0050648F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448562725BB833F0050648F /* SceneDelegate.swift */; };
+		3448564225BBB4510050648F /* RuleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448564125BBB4510050648F /* RuleHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3448560D25BB73A50050648F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3448561C25BB74A60050648F /* AutomatonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomatonCollectionViewController.swift; sourceTree = "<group>"; };
 		3448562725BB833F0050648F /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3448564125BBB4510050648F /* RuleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				344855E925BB73A40050648F /* AppDelegate.swift */,
 				3448562725BB833F0050648F /* SceneDelegate.swift */,
 				3448561C25BB74A60050648F /* AutomatonCollectionViewController.swift */,
+				3448564125BBB4510050648F /* RuleHelper.swift */,
 				344855EF25BB73A40050648F /* Main.storyboard */,
 				344855F225BB73A50050648F /* Assets.xcassets */,
 				344855F425BB73A50050648F /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 				3448561D25BB74A60050648F /* AutomatonCollectionViewController.swift in Sources */,
 				344855EA25BB73A40050648F /* AppDelegate.swift in Sources */,
 				3448562825BB833F0050648F /* SceneDelegate.swift in Sources */,
+				3448564225BBB4510050648F /* RuleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
